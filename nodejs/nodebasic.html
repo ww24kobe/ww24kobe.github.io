@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>nodejs入门 | 小猪的全栈之路</title>
+    <meta name="description" content="小猪全栈，小猪的全栈之路，汪玮，前端教程，web开发，全栈开发，PHP教程， Javascript教程, node教程, 全栈教程，css教程，css教程">
+    <meta name="generator" content="VuePress 1.3.1">
+    <link rel="icon" href="/favicon.png">
+    
+    <link rel="preload" href="/assets/css/0.styles.26cb1efd.css" as="style"><link rel="preload" href="/assets/js/app.ab73207c.js" as="script"><link rel="preload" href="/assets/js/2.371eb53b.js" as="script"><link rel="preload" href="/assets/js/51.f9f283a0.js" as="script"><link rel="prefetch" href="/assets/js/10.4d9f6525.js"><link rel="prefetch" href="/assets/js/11.5ebb20e8.js"><link rel="prefetch" href="/assets/js/12.2800d435.js"><link rel="prefetch" href="/assets/js/13.5ef11490.js"><link rel="prefetch" href="/assets/js/14.34f60f46.js"><link rel="prefetch" href="/assets/js/15.2a647f65.js"><link rel="prefetch" href="/assets/js/16.7983acbe.js"><link rel="prefetch" href="/assets/js/17.47089bf3.js"><link rel="prefetch" href="/assets/js/18.c6ebe5fc.js"><link rel="prefetch" href="/assets/js/19.29ae433b.js"><link rel="prefetch" href="/assets/js/20.7e3db95c.js"><link rel="prefetch" href="/assets/js/21.a1af9956.js"><link rel="prefetch" href="/assets/js/22.f9632885.js"><link rel="prefetch" href="/assets/js/23.c6343f0d.js"><link rel="prefetch" href="/assets/js/24.4212e3b9.js"><link rel="prefetch" href="/assets/js/25.3b47bc94.js"><link rel="prefetch" href="/assets/js/26.e7d175cd.js"><link rel="prefetch" href="/assets/js/27.3f9b3cb3.js"><link rel="prefetch" href="/assets/js/28.0ed8b082.js"><link rel="prefetch" href="/assets/js/29.45a4772e.js"><link rel="prefetch" href="/assets/js/3.0366a078.js"><link rel="prefetch" href="/assets/js/30.b5b485c3.js"><link rel="prefetch" href="/assets/js/31.32a35225.js"><link rel="prefetch" href="/assets/js/32.fbd42d55.js"><link rel="prefetch" href="/assets/js/33.52012796.js"><link rel="prefetch" href="/assets/js/34.a66a982d.js"><link rel="prefetch" href="/assets/js/35.b47ff83d.js"><link rel="prefetch" href="/assets/js/36.3e5cd53a.js"><link rel="prefetch" href="/assets/js/37.9dc5ca9b.js"><link rel="prefetch" href="/assets/js/38.670cda3d.js"><link rel="prefetch" href="/assets/js/39.058e9a4b.js"><link rel="prefetch" href="/assets/js/4.b2c0328d.js"><link rel="prefetch" href="/assets/js/40.386765ff.js"><link rel="prefetch" href="/assets/js/41.3259e3cc.js"><link rel="prefetch" href="/assets/js/42.3a0a348b.js"><link rel="prefetch" href="/assets/js/43.88e3d886.js"><link rel="prefetch" href="/assets/js/44.82c71439.js"><link rel="prefetch" href="/assets/js/45.068fd216.js"><link rel="prefetch" href="/assets/js/46.3320ec0c.js"><link rel="prefetch" href="/assets/js/47.cc2216be.js"><link rel="prefetch" href="/assets/js/48.1d8d8260.js"><link rel="prefetch" href="/assets/js/49.e6186920.js"><link rel="prefetch" href="/assets/js/5.01eecee7.js"><link rel="prefetch" href="/assets/js/50.4694c7a4.js"><link rel="prefetch" href="/assets/js/52.39ec43de.js"><link rel="prefetch" href="/assets/js/53.0cd3b2d3.js"><link rel="prefetch" href="/assets/js/54.0fadd039.js"><link rel="prefetch" href="/assets/js/55.e9e01217.js"><link rel="prefetch" href="/assets/js/56.90661358.js"><link rel="prefetch" href="/assets/js/57.c4fe1c78.js"><link rel="prefetch" href="/assets/js/58.765b55b9.js"><link rel="prefetch" href="/assets/js/59.f80cec32.js"><link rel="prefetch" href="/assets/js/6.e0bb6ede.js"><link rel="prefetch" href="/assets/js/60.70d747a9.js"><link rel="prefetch" href="/assets/js/61.0fdeb455.js"><link rel="prefetch" href="/assets/js/62.280955c5.js"><link rel="prefetch" href="/assets/js/63.61f1a204.js"><link rel="prefetch" href="/assets/js/64.aa481b23.js"><link rel="prefetch" href="/assets/js/65.27717882.js"><link rel="prefetch" href="/assets/js/66.59a12e8b.js"><link rel="prefetch" href="/assets/js/67.9ce45748.js"><link rel="prefetch" href="/assets/js/68.4ff6dbd6.js"><link rel="prefetch" href="/assets/js/69.e2a04bad.js"><link rel="prefetch" href="/assets/js/7.5bea20b6.js"><link rel="prefetch" href="/assets/js/70.c72a1b77.js"><link rel="prefetch" href="/assets/js/8.c1335d0b.js"><link rel="prefetch" href="/assets/js/9.819e767c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.26cb1efd.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.jpg" alt="小猪的全栈之路" class="logo"> <span class="site-name can-hide">小猪的全栈之路</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Javascript" class="dropdown-title"><span class="title">Javascript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/htmlcss/" class="nav-link">
+  HTML&amp;CSS
+</a></li><li class="dropdown-item"><!----> <a href="/javascript/" class="nav-link">
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/javascript/es.html" class="nav-link">
+  ES6/ES7/ES8/ES9/ES10
+</a></li><li class="dropdown-item"><!----> <a href="/framework/jquery/" class="nav-link">
+  jQuery
+</a></li><li class="dropdown-item"><!----> <a href="/nodejs/" class="nav-link router-link-active">
+  NodeJs&amp;构建工具
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  React
+</a></li></ul></div></div><div class="nav-item"><a href="/php/" class="nav-link">
+  PHP
+</a></div><div class="nav-item"><a href="/linux/" class="nav-link">
+  Linux
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="天道酬勤" class="dropdown-title"><span class="title">天道酬勤</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/leetcode/" class="nav-link">
+  力扣
+</a></li><li class="dropdown-item"><!----> <a href="/codeblock/" class="nav-link">
+  代码块
+</a></li><li class="dropdown-item"><!----> <a href="/mianshi/" class="nav-link">
+  面试题收集
+</a></li><li class="dropdown-item"><!----> <a href="/designpattern/" class="nav-link">
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/datastruct/" class="nav-link">
+  数据结构&amp;算法
+</a></li><li class="dropdown-item"><!----> <a href="/networksafe/" class="nav-link">
+  网络&amp;安全
+</a></li><li class="dropdown-item"><!----> <a href="/tool/" class="nav-link">
+  工具
+</a></li><li class="dropdown-item"><!----> <a href="/ui/" class="nav-link">
+  设计
+</a></li><li class="dropdown-item"><!----> <a href="/abstract/" class="nav-link">
+  编程思维
+</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">
+  关于我
+</a></div><div class="nav-item"><a href="https://github.com/ww24kobe" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Javascript" class="dropdown-title"><span class="title">Javascript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/htmlcss/" class="nav-link">
+  HTML&amp;CSS
+</a></li><li class="dropdown-item"><!----> <a href="/javascript/" class="nav-link">
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/javascript/es.html" class="nav-link">
+  ES6/ES7/ES8/ES9/ES10
+</a></li><li class="dropdown-item"><!----> <a href="/framework/jquery/" class="nav-link">
+  jQuery
+</a></li><li class="dropdown-item"><!----> <a href="/nodejs/" class="nav-link router-link-active">
+  NodeJs&amp;构建工具
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  React
+</a></li></ul></div></div><div class="nav-item"><a href="/php/" class="nav-link">
+  PHP
+</a></div><div class="nav-item"><a href="/linux/" class="nav-link">
+  Linux
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="天道酬勤" class="dropdown-title"><span class="title">天道酬勤</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/leetcode/" class="nav-link">
+  力扣
+</a></li><li class="dropdown-item"><!----> <a href="/codeblock/" class="nav-link">
+  代码块
+</a></li><li class="dropdown-item"><!----> <a href="/mianshi/" class="nav-link">
+  面试题收集
+</a></li><li class="dropdown-item"><!----> <a href="/designpattern/" class="nav-link">
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/datastruct/" class="nav-link">
+  数据结构&amp;算法
+</a></li><li class="dropdown-item"><!----> <a href="/networksafe/" class="nav-link">
+  网络&amp;安全
+</a></li><li class="dropdown-item"><!----> <a href="/tool/" class="nav-link">
+  工具
+</a></li><li class="dropdown-item"><!----> <a href="/ui/" class="nav-link">
+  设计
+</a></li><li class="dropdown-item"><!----> <a href="/abstract/" class="nav-link">
+  编程思维
+</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">
+  关于我
+</a></div><div class="nav-item"><a href="https://github.com/ww24kobe" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/nodejs/module.html" class="sidebar-link">模块化CommonJS，AMD，CMD规范</a></li><li><a href="/nodejs/webpackloader.html" class="sidebar-link">webpack常用Loader配置</a></li><li><a href="/nodejs/npmcommond.html" class="sidebar-link">NPM命令基本使用</a></li><li><a href="/nodejs/gulp.html" class="sidebar-link">Gulp前端构建工具</a></li><li><a href="/nodejs/requirejs.html" class="sidebar-link">requireJs模块化开发</a></li><li><a href="/nodejs/sass.html" class="sidebar-link">sass</a></li><li><a href="/nodejs/nodebasic.html" class="active sidebar-link">nodejs入门</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/nodejs/nodebasic.html#nodejs概述" class="sidebar-link">nodejs概述</a></li><li class="sidebar-sub-header"><a href="/nodejs/nodebasic.html#node-js-有哪些特点？" class="sidebar-link">node.js 有哪些特点？</a></li><li class="sidebar-sub-header"><a href="/nodejs/nodebasic.html#浏览器、nodejs和其他服务器之间的关系" class="sidebar-link">浏览器、nodejs和其他服务器之间的关系</a></li><li class="sidebar-sub-header"><a href="/nodejs/nodebasic.html#安装nodejs" class="sidebar-link">安装nodejs</a></li><li class="sidebar-sub-header"><a href="/nodejs/nodebasic.html#写入数据到文件" class="sidebar-link">写入数据到文件</a></li><li class="sidebar-sub-header"><a href="/nodejs/nodebasic.html#读取文件数据" class="sidebar-link">读取文件数据</a></li><li class="sidebar-sub-header"><a href="/nodejs/nodebasic.html#读写文件注意事项" class="sidebar-link">读写文件注意事项</a></li><li class="sidebar-sub-header"><a href="/nodejs/nodebasic.html#练习内置路径模块path" class="sidebar-link">练习内置路径模块Path</a></li><li class="sidebar-sub-header"><a href="/nodejs/nodebasic.html#使用内置模块http搭建web服务器（类似apache）" class="sidebar-link">使用内置模块http搭建web服务器（类似apache）</a></li><li class="sidebar-sub-header"><a href="/nodejs/nodebasic.html#实现不同请求响应不同的静态文件" class="sidebar-link">实现不同请求响应不同的静态文件</a></li><li class="sidebar-sub-header"><a href="/nodejs/nodebasic.html#nrm（npm下载源管理器）" class="sidebar-link">nrm（npm下载源管理器）</a></li></ul></li><li><a href="/nodejs/hexo.html" class="sidebar-link">hexo+github pages搭建博客</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="nodejs入门"><a href="#nodejs入门" class="header-anchor">#</a> nodejs入门</h1> <h2 id="nodejs概述"><a href="#nodejs概述" class="header-anchor">#</a> nodejs概述</h2> <ul><li><p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript <code>开发平台</code>，使得JavaScript成为服务端开发语言得以实现。</p></li> <li><p>何为开发平台？有对应的编程语言、有语言运行Runtime环境、有能实现特定功能的API（SDK：Software Development Kit）。    apache -php、tomcat - java、 nodejs- js</p></li> <li><p>基于 node.js 可以开发桌面应用程序（GUI -借助 node-webkit、electron 等框架实现）、<code>Web 应用程序（网站）</code> 等。</p></li></ul> <p>node.js 相关网站</p> <ul><li><a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer">node.js官方网站<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="http://nodejs.cn/" target="_blank" rel="noopener noreferrer">node.js中文网<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://cnodejs.org/" target="_blank" rel="noopener noreferrer">node.js 中文社区<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul> <h2 id="node-js-有哪些特点？"><a href="#node-js-有哪些特点？" class="header-anchor">#</a> node.js 有哪些特点？</h2> <ol><li><p>单线程 (JavaScript运行机制)</p></li> <li><p>非阻塞 I/O 模型，当执行异步I/O操作时，不会阻塞。（I/O=input/output） (JavaScript运行机制)</p> <p>IO:磁盘读写IO,网络IO</p></li> <li><p>拥有世界最大的开源库生态系统 —— npm（Nodejs Package Manager即node包管理器）</p></li></ol> <h2 id="浏览器、nodejs和其他服务器之间的关系"><a href="#浏览器、nodejs和其他服务器之间的关系" class="header-anchor">#</a> 浏览器、nodejs和其他服务器之间的关系</h2> <p><img src="evernotecid://72B82DA4-1938-457D-9C87-884F6ABF220E/appyinxiangcom/12514222/ENResource/p425" alt="92923af9598a91bd5f4ccccbe15f29ea.png"></p> <h2 id="安装nodejs"><a href="#安装nodejs" class="header-anchor">#</a> 安装nodejs</h2> <p>由于Node.js平台是在后端运行JavaScript代码，所以，必须首先在本机安装Node环境</p> <ol><li>下载地址</li></ol> <ul><li><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener noreferrer">当前版本<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://nodejs.org/en/download/releases/" target="_blank" rel="noopener noreferrer">历史版本<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul> <ol start="2"><li>官网术语解释</li></ol> <ul><li>LTS 版本：Long-term Support 版本，长期支持版，即稳定版。</li> <li>Current 版本：Latest Features 版本，最新版本，新特性会在该版本中最先加入。</li></ul> <blockquote><p>注意：</p></blockquote> <ul><li>安装完毕后通过命令：<code>node -v</code>来查看版本确定是否安装成功,安装成功也内置了npm命令，也可通过<code>npm -v</code>查看版本号。</li></ul> <div class="language-shell extra-class"><pre class="language-shell"><code>Microsoft Windows <span class="token punctuation">[</span>版本 <span class="token number">10.0</span>.17134.345<span class="token punctuation">]</span>
+<span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token number">2018</span> Microsoft Corporation。保留所有权利。
+
+C:<span class="token punctuation">\</span>Users<span class="token punctuation">\</span>Administrator<span class="token operator">&gt;</span>node -v
+v10.15.0
+
+C:<span class="token punctuation">\</span>Users<span class="token punctuation">\</span>Administrator<span class="token operator">&gt;</span>npm -v
+<span class="token number">6.4</span>.1
+
+</code></pre></div><ul><li>如需要可以配置环境变量。可以让node和npm命令在任意目录都可使用（注意：安装时默认配置了环境变量）</li> <li>步骤：我的计算机-&gt;右键属性-&gt;高级系统设置-&gt;高级-&gt;环境变量-&gt;path</li></ul> <h1 id="编写nodejs程序"><a href="#编写nodejs程序" class="header-anchor">#</a> 编写nodejs程序</h1> <p>之前所编写的javascript代码都是在<code>浏览器中</code>运行的，因此可以直接在浏览器的控制器console中编写js代码并运行。</p> <p>现在我们编写的javascrip代码都是在<code>Node环境中</code>执行，执行方式有两种：</p> <ul><li>方式一：在window命令行环境中输入指令<code>node</code>并回车，进行<code>node的交互式环境</code>,编写javascript代码执行即可。其中node交互式环境也称之为<code>REPL</code>(Read Eval Print Loop-读取评估打印循环 )，按两次<code>ctrl+c</code>,可退出REPL环境。</li></ul> <p>先输入node指令，进入node的交互式环境，在输入js代码。</p> <div class="language-powershell extra-class"><pre class="language-powershell"><code>C:\Users\Administrator&gt;node
+&gt; 1<span class="token operator">+</span>1
+2
+</code></pre></div><ul><li>方式二：把javascript代码写在后缀为<code>.js</code>的文件中，如有一个hello.js文件，在window命令行中输入<code>node hello.js</code>即可执行。</li></ul> <p>如在<code>hello.js</code>中编写以下代码:</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token operator">+</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+</code></pre></div><p>window命令行中执行： <code>node hello.js</code></p> <blockquote><p>思考:之前在浏览器中的的window、history、location、document等对象在node环境还支持吗？</p></blockquote> <p>答:<code>不支持了</code>，因为window、history、location等对象是基于浏览器的，而现在我们是基于node环境。</p> <div class="language-powershell extra-class"><pre class="language-powershell"><code><span class="token comment"># node环境中输入会报错</span>
+&gt; history
+ReferenceError: history is not defined
+&gt; window
+ReferenceError: window is not defined
+&gt;
+</code></pre></div><blockquote><p>注：在浏览器环境中全局对象是<code>window</code>，在node环境中全局对象变为<code>global</code></p></blockquote> <h1 id="通过nodejs-读写文件"><a href="#通过nodejs-读写文件" class="header-anchor">#</a> 通过nodejs 读写文件</h1> <p>官方文档：<a href="http://nodejs.cn/api/fs.html" target="_blank" rel="noopener noreferrer">http://nodejs.cn/api/fs.html<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <ul><li><p>使用到的文件系统模块<code>var fs = require('fs');</code></p></li> <li><p><strong>写文件</strong>：<code>fs.writeFile(file, data[, options], callback);</code></p> <ul><li>参数1：要写入的文件路径，<strong>必填</strong>。</li> <li>参数2：要写入的数据，<strong>必填</strong>。</li> <li>参数3：写入文件时的选项，比如：文件编码。</li> <li>参数4：文件写入完毕后的回调函数，<strong>必填</strong>。</li> <li>写文件注意：
+<ul><li>该操作采用<code>异步</code>执行</li> <li>如果文件存在则替换原内容</li> <li>默认写入的文件编码为utf8</li> <li>回调函数有1个参数：err，表示在写入文件的操作过程中是否出错了。
+<ul><li>如果出错了<code>err != null</code>，成功时 <code>err === null</code></li></ul></li></ul></li></ul></li> <li><p><strong>读文件</strong>：<code>fs.readFile(file[, options], callback)</code></p> <ul><li>参数1：要读取的文件路径，<strong>必填</strong>。</li> <li>参数2：读取文件时的选项，比如：文件编码utf8。选填。</li> <li>参数3：文件读取完毕后的回调函数，<strong>必填</strong>。</li> <li>读文件注意：
+<ul><li>该操作采用<code>异步</code>执行</li> <li>回调函数有两个参数，分别是err和data</li> <li>如果读取文件时没有指定编码，那么返回的将是二进制数据，如果指定了编码如utf8，那么会返回指定的编码数据。</li> <li>只要异步操作，回调函数第一个都是错误对象err优先</li></ul></li></ul></li></ul> <h2 id="写入数据到文件"><a href="#写入数据到文件" class="header-anchor">#</a> 写入数据到文件</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">//导入内置文件模块fs(file System)</span>
+<span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">'hello world 你好'</span><span class="token punctuation">;</span>
+<span class="token comment">//写入文件（文件不存在则自动创建）</span>
+fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span><span class="token string">'data.txt'</span><span class="token punctuation">,</span>str<span class="token punctuation">,</span><span class="token string">'utf8'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">//抛出错误信息</span>
+		<span class="token keyword">throw</span> err<span class="token punctuation">;</span> 
+	<span class="token punctuation">}</span>
+	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'写入ok'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><blockquote><p>注：writeFile写入文件是先把文件内容清空在写入，如果要追加写入的话可以使用<code>appendFile</code>函数</p></blockquote> <h2 id="读取文件数据"><a href="#读取文件数据" class="header-anchor">#</a> 读取文件数据</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">'./data.txt'</span><span class="token punctuation">,</span><span class="token string">'utf8'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span>data</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">throw</span> err<span class="token punctuation">;</span> <span class="token comment">//抛出异常信息</span>
+	<span class="token punctuation">}</span>
+	<span class="token comment">//打印读取到的文件数据 </span>
+	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="读写文件注意事项"><a href="#读写文件注意事项" class="header-anchor">#</a> 读写文件注意事项</h2> <ol><li><p>异步操作无法通过 try-catch 来捕获异常，只能通过回调函数的 err参数 来判断是否出错。</p></li> <li><p>只有同步操作可以通过 try-catch 来捕获异常。</p></li> <li><p>不要使用 <code>fs.existsSync(path, callback)</code> 来判断文件是否存在，直接判断 err 即可</p></li></ol> <h2 id="练习内置路径模块path"><a href="#练习内置路径模块path" class="header-anchor">#</a> 练习内置路径模块Path</h2> <p>文档链接：<a href="http://nodejs.cn/api/path.html" target="_blank" rel="noopener noreferrer">http://nodejs.cn/api/path.html<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h2 id="使用内置模块http搭建web服务器（类似apache）"><a href="#使用内置模块http搭建web服务器（类似apache）" class="header-anchor">#</a> 使用内置模块http搭建web服务器（类似apache）</h2> <p>文档链接：
+<a href="http://nodejs.cn/api/http.html#http_http_createserver_options_requestlistener" target="_blank" rel="noopener noreferrer">http://nodejs.cn/api/http.html#http_http_createserver_options_requestlistener<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>步骤：</p> <ol><li>加载http模块</li> <li>创建http服务，</li> <li>服务端对象监听request 请求事件，用于监听客户端的请求</li> <li>启动http服务，监听端口</li></ol> <p>参考代码：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 1. 加载http模块</span>
+<span class="token keyword">var</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 2. 创建http服务，设置监听request 请求事件的处理程序</span>
+<span class="token keyword">var</span> server <span class="token operator">=</span> http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 3. 服务端对象监听request 请求事件，用于监听客户端的请求</span>
+server<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'request'</span><span class="token punctuation">,</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">//req-请求对象 , res-响应对象</span>
+  <span class="token comment">//处理客户端请求逻辑</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'有人请求了~~'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//必须结束响应，否则浏览器会被挂起</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 4. 启动http服务，开始监听3000端口</span>
+server<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'服务已经启动，请访问： http://localhost:3000'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><blockquote><p>注意：</p></blockquote> <ol><li><p>在监听request事件中，最后一定要<code>res.end()</code>结束响应。</p></li> <li><p>浏览器显示中文可能是乱码，需设置响应头告诉浏览器显示时所使用的编码，要在res.end()之前设置</p></li></ol> <div class="language-javascript extra-class"><pre class="language-javascript"><code>   res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">&quot;Content-type&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;text/plain;charset=utf-8&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 响应为纯文本</span>
+   res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">&quot;Content-type&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;text/html;charset=utf-8&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//响应为html格式，能够解析html标签</span>
+</code></pre></div><blockquote><p>注意：Chrome 浏览器默认无法手动设置编码，需要安装&quot;Set Character Encoding&quot;扩展。</p></blockquote> <h2 id="实现不同请求响应不同的静态文件"><a href="#实现不同请求响应不同的静态文件" class="header-anchor">#</a> 实现不同请求响应不同的静态文件</h2> <h2 id="nrm（npm下载源管理器）"><a href="#nrm（npm下载源管理器）" class="header-anchor">#</a> nrm（npm下载源管理器）</h2> <p>nrm 是一个 NPM 源管理器，允许你快速地在如下 NPM 源间切换：</p> <p>1、安装</p> <div class="language- extra-class"><pre class="language-text"><code>npm install -g nrm
+</code></pre></div><p>2、使用列出可选的源 <code>nrm ls</code></p> <div class="language- extra-class"><pre class="language-text"><code>
+
+  * npm ---- https://registry.npmjs.org/
+  cnpm --- http://r.cnpmjs.org/
+  taobao - https://registry.npm.taobao.org/
+  nj ----- https://registry.nodejitsu.com/
+  npmMirror  https://skimdb.npmjs.com/registry/
+  edunpm - http://registry.enpmjs.org/
+  带 * 的是当前使用的源，上面的输出表明当前源是官方源
+</code></pre></div><p>3、切换切换到taobao源</p> <div class="language- extra-class"><pre class="language-text"><code>nrm use taobao 
+</code></pre></div><p>4、测试
+还可以通过 nrm test 测试相应源的响应时间</p> <p>测试官方源的响应时间：nrm test npm</p> <p>测试所有源的响应时间：nrm test</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/nodejs/sass.html" class="prev">
+        sass
+      </a></span> <span class="next"><a href="/nodejs/hexo.html">
+        hexo+github pages搭建博客
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.ab73207c.js" defer></script><script src="/assets/js/2.371eb53b.js" defer></script><script src="/assets/js/51.f9f283a0.js" defer></script>
+  </body>
+</html>

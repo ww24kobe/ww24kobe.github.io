@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>深入理解CSS选择器优先级 | 小猪的全栈之路</title>
+    <meta name="description" content="小猪全栈，小猪的全栈之路，汪玮，前端教程，web开发，全栈开发，PHP教程， Javascript教程, node教程, 全栈教程，css教程，css教程">
+    <meta name="generator" content="VuePress 1.3.1">
+    <link rel="icon" href="/favicon.png">
+    
+    <link rel="preload" href="/assets/css/0.styles.26cb1efd.css" as="style"><link rel="preload" href="/assets/js/app.ab73207c.js" as="script"><link rel="preload" href="/assets/js/2.371eb53b.js" as="script"><link rel="preload" href="/assets/js/20.7e3db95c.js" as="script"><link rel="prefetch" href="/assets/js/10.4d9f6525.js"><link rel="prefetch" href="/assets/js/11.5ebb20e8.js"><link rel="prefetch" href="/assets/js/12.2800d435.js"><link rel="prefetch" href="/assets/js/13.5ef11490.js"><link rel="prefetch" href="/assets/js/14.34f60f46.js"><link rel="prefetch" href="/assets/js/15.2a647f65.js"><link rel="prefetch" href="/assets/js/16.7983acbe.js"><link rel="prefetch" href="/assets/js/17.47089bf3.js"><link rel="prefetch" href="/assets/js/18.c6ebe5fc.js"><link rel="prefetch" href="/assets/js/19.29ae433b.js"><link rel="prefetch" href="/assets/js/21.a1af9956.js"><link rel="prefetch" href="/assets/js/22.f9632885.js"><link rel="prefetch" href="/assets/js/23.c6343f0d.js"><link rel="prefetch" href="/assets/js/24.4212e3b9.js"><link rel="prefetch" href="/assets/js/25.3b47bc94.js"><link rel="prefetch" href="/assets/js/26.e7d175cd.js"><link rel="prefetch" href="/assets/js/27.3f9b3cb3.js"><link rel="prefetch" href="/assets/js/28.0ed8b082.js"><link rel="prefetch" href="/assets/js/29.45a4772e.js"><link rel="prefetch" href="/assets/js/3.0366a078.js"><link rel="prefetch" href="/assets/js/30.b5b485c3.js"><link rel="prefetch" href="/assets/js/31.32a35225.js"><link rel="prefetch" href="/assets/js/32.fbd42d55.js"><link rel="prefetch" href="/assets/js/33.52012796.js"><link rel="prefetch" href="/assets/js/34.a66a982d.js"><link rel="prefetch" href="/assets/js/35.b47ff83d.js"><link rel="prefetch" href="/assets/js/36.3e5cd53a.js"><link rel="prefetch" href="/assets/js/37.9dc5ca9b.js"><link rel="prefetch" href="/assets/js/38.670cda3d.js"><link rel="prefetch" href="/assets/js/39.058e9a4b.js"><link rel="prefetch" href="/assets/js/4.b2c0328d.js"><link rel="prefetch" href="/assets/js/40.386765ff.js"><link rel="prefetch" href="/assets/js/41.3259e3cc.js"><link rel="prefetch" href="/assets/js/42.3a0a348b.js"><link rel="prefetch" href="/assets/js/43.88e3d886.js"><link rel="prefetch" href="/assets/js/44.82c71439.js"><link rel="prefetch" href="/assets/js/45.068fd216.js"><link rel="prefetch" href="/assets/js/46.3320ec0c.js"><link rel="prefetch" href="/assets/js/47.cc2216be.js"><link rel="prefetch" href="/assets/js/48.1d8d8260.js"><link rel="prefetch" href="/assets/js/49.e6186920.js"><link rel="prefetch" href="/assets/js/5.01eecee7.js"><link rel="prefetch" href="/assets/js/50.4694c7a4.js"><link rel="prefetch" href="/assets/js/51.f9f283a0.js"><link rel="prefetch" href="/assets/js/52.39ec43de.js"><link rel="prefetch" href="/assets/js/53.0cd3b2d3.js"><link rel="prefetch" href="/assets/js/54.0fadd039.js"><link rel="prefetch" href="/assets/js/55.e9e01217.js"><link rel="prefetch" href="/assets/js/56.90661358.js"><link rel="prefetch" href="/assets/js/57.c4fe1c78.js"><link rel="prefetch" href="/assets/js/58.765b55b9.js"><link rel="prefetch" href="/assets/js/59.f80cec32.js"><link rel="prefetch" href="/assets/js/6.e0bb6ede.js"><link rel="prefetch" href="/assets/js/60.70d747a9.js"><link rel="prefetch" href="/assets/js/61.0fdeb455.js"><link rel="prefetch" href="/assets/js/62.280955c5.js"><link rel="prefetch" href="/assets/js/63.61f1a204.js"><link rel="prefetch" href="/assets/js/64.aa481b23.js"><link rel="prefetch" href="/assets/js/65.27717882.js"><link rel="prefetch" href="/assets/js/66.59a12e8b.js"><link rel="prefetch" href="/assets/js/67.9ce45748.js"><link rel="prefetch" href="/assets/js/68.4ff6dbd6.js"><link rel="prefetch" href="/assets/js/69.e2a04bad.js"><link rel="prefetch" href="/assets/js/7.5bea20b6.js"><link rel="prefetch" href="/assets/js/70.c72a1b77.js"><link rel="prefetch" href="/assets/js/8.c1335d0b.js"><link rel="prefetch" href="/assets/js/9.819e767c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.26cb1efd.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.jpg" alt="小猪的全栈之路" class="logo"> <span class="site-name can-hide">小猪的全栈之路</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Javascript" class="dropdown-title"><span class="title">Javascript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/htmlcss/" class="nav-link router-link-active">
+  HTML&amp;CSS
+</a></li><li class="dropdown-item"><!----> <a href="/javascript/" class="nav-link">
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/javascript/es.html" class="nav-link">
+  ES6/ES7/ES8/ES9/ES10
+</a></li><li class="dropdown-item"><!----> <a href="/framework/jquery/" class="nav-link">
+  jQuery
+</a></li><li class="dropdown-item"><!----> <a href="/nodejs/" class="nav-link">
+  NodeJs&amp;构建工具
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  React
+</a></li></ul></div></div><div class="nav-item"><a href="/php/" class="nav-link">
+  PHP
+</a></div><div class="nav-item"><a href="/linux/" class="nav-link">
+  Linux
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="天道酬勤" class="dropdown-title"><span class="title">天道酬勤</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/leetcode/" class="nav-link">
+  力扣
+</a></li><li class="dropdown-item"><!----> <a href="/codeblock/" class="nav-link">
+  代码块
+</a></li><li class="dropdown-item"><!----> <a href="/mianshi/" class="nav-link">
+  面试题收集
+</a></li><li class="dropdown-item"><!----> <a href="/designpattern/" class="nav-link">
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/datastruct/" class="nav-link">
+  数据结构&amp;算法
+</a></li><li class="dropdown-item"><!----> <a href="/networksafe/" class="nav-link">
+  网络&amp;安全
+</a></li><li class="dropdown-item"><!----> <a href="/tool/" class="nav-link">
+  工具
+</a></li><li class="dropdown-item"><!----> <a href="/ui/" class="nav-link">
+  设计
+</a></li><li class="dropdown-item"><!----> <a href="/abstract/" class="nav-link">
+  编程思维
+</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">
+  关于我
+</a></div><div class="nav-item"><a href="https://github.com/ww24kobe" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Javascript" class="dropdown-title"><span class="title">Javascript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/htmlcss/" class="nav-link router-link-active">
+  HTML&amp;CSS
+</a></li><li class="dropdown-item"><!----> <a href="/javascript/" class="nav-link">
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/javascript/es.html" class="nav-link">
+  ES6/ES7/ES8/ES9/ES10
+</a></li><li class="dropdown-item"><!----> <a href="/framework/jquery/" class="nav-link">
+  jQuery
+</a></li><li class="dropdown-item"><!----> <a href="/nodejs/" class="nav-link">
+  NodeJs&amp;构建工具
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  React
+</a></li></ul></div></div><div class="nav-item"><a href="/php/" class="nav-link">
+  PHP
+</a></div><div class="nav-item"><a href="/linux/" class="nav-link">
+  Linux
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="天道酬勤" class="dropdown-title"><span class="title">天道酬勤</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/leetcode/" class="nav-link">
+  力扣
+</a></li><li class="dropdown-item"><!----> <a href="/codeblock/" class="nav-link">
+  代码块
+</a></li><li class="dropdown-item"><!----> <a href="/mianshi/" class="nav-link">
+  面试题收集
+</a></li><li class="dropdown-item"><!----> <a href="/designpattern/" class="nav-link">
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/datastruct/" class="nav-link">
+  数据结构&amp;算法
+</a></li><li class="dropdown-item"><!----> <a href="/networksafe/" class="nav-link">
+  网络&amp;安全
+</a></li><li class="dropdown-item"><!----> <a href="/tool/" class="nav-link">
+  工具
+</a></li><li class="dropdown-item"><!----> <a href="/ui/" class="nav-link">
+  设计
+</a></li><li class="dropdown-item"><!----> <a href="/abstract/" class="nav-link">
+  编程思维
+</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">
+  关于我
+</a></div><div class="nav-item"><a href="https://github.com/ww24kobe" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/htmlcss/csslevel.html" class="active sidebar-link">深入理解CSS选择器优先级</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/htmlcss/csslevel.html#什么是选择器优先级（specificity）" class="sidebar-link">什么是选择器优先级（Specificity）</a></li><li class="sidebar-sub-header"><a href="/htmlcss/csslevel.html#优先级的计算规则" class="sidebar-link">优先级的计算规则</a></li><li class="sidebar-sub-header"><a href="/htmlcss/csslevel.html#优先级的特殊情况" class="sidebar-link">优先级的特殊情况</a></li></ul></li><li><a href="/htmlcss/bootstrap.html" class="sidebar-link">Bootstrap框架</a></li><li><a href="/htmlcss/margin负值应用.html" class="sidebar-link">margin负值应用</a></li><li><a href="/htmlcss/margin合并-塌陷问题及解决办法.html" class="sidebar-link">margin合并&amp;塌陷问题及解决办法</a></li><li><a href="/htmlcss/导航栏横向移动.html" class="sidebar-link">导航栏横向移动</a></li><li><a href="/htmlcss/快速理解BFC.html" class="sidebar-link">快速理解BFC</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="深入理解css选择器优先级"><a href="#深入理解css选择器优先级" class="header-anchor">#</a> 深入理解CSS选择器优先级</h1> <h2 id="什么是选择器优先级（specificity）"><a href="#什么是选择器优先级（specificity）" class="header-anchor">#</a> 什么是选择器优先级（Specificity）</h2> <p>直接复制了 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Specificity" target="_blank" rel="noopener noreferrer">MDN对优先级的定义<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> ：</p> <blockquote><p>浏览器通过优先级来判断哪一些属性值与一个元素最为相关，从而在该元素上应用这些属性值。优先级是基于不同种类选择器组成的匹配规则。</p></blockquote> <p>这句话也是很抽象，暂且先不管它了。但是我们可以先看一个例子：</p> <ul><li>html</li></ul> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>content<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>content<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+我是什么颜色
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><ul><li>css</li></ul> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">#content</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> #f00<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.content</span> <span class="token punctuation">{</span>
+     <span class="token property">color</span><span class="token punctuation">:</span> #0f0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>那最后文字是什么颜色呢？答案很简单：红色。这就涉及到了优先级问题，同一块内容，我们同时用了 <code>ID选择器</code> 和 <code>类选择器</code>,因为 <code>ID选择器</code> 优先级大于 <code>类选择器</code> , 所以最终显示为红色。</p> <h2 id="优先级的计算规则"><a href="#优先级的计算规则" class="header-anchor">#</a> 优先级的计算规则</h2> <p>相信每位写过CSS的朋友都知道，CSS选择器的优先级关系是:</p> <blockquote><p>内联 &gt; ID选择器 &gt; 类选择器 &gt; 标签选择器。</p></blockquote> <p>但是，浏览器具体的优先级算法是怎样的？可能还有些人不知道 。《CSS REFACTORING》 中提到了算法的过程 。
+A specificity is determined by plugging numbers into (a, b, c, d):</p> <p>If the styles are applied via the style attribute, a=1; otherwise, a=0.
+b is equal to the number of ID selectors present.
+c is equal to the number of class selectors, attribute selectors, and pseudoclasses present.
+d is equal to the number of type selectors and pseudoelements present.</p> <p>翻译过来就是</p> <p>优先级是由 A 、B、C、D 的值来决定的，其中它们的值计算规则如下：</p> <p>如果存在内联样式，那么 A = 1, 否则 A = 0;
+B 的值等于 ID选择器 出现的次数;
+C 的值等于 类选择器 和 属性选择器 和 伪类 出现的总次数;
+D 的值等于 标签选择器 和 伪元素 出现的总次数 。</p> <p>这样子直接看好像也还是很明白 ，那先上个例子：</p> <div class="language-css extra-class"><pre class="language-css"><code>#nav-global &gt; ul &gt; li &gt; a.nav-link
+</code></pre></div><p>套用上面的算法，依次求出 A B C D 的值：</p> <p>因为没有内联样式 ，所以 A = 0;</p> <p>ID选择器总共出现了1次， B = 1;</p> <p><code>类选择器</code>出现了1次， <code>属性选择器</code>出现了0次，伪类选择器出现0次，所以 C = (1 + 0 + 0) = 1；</p> <p><code>标签选择器</code>出现了3次， <code>伪元素选择器</code>出现了0次，所以 D = (3 + 0) = 3;</p> <p>上面算出的A 、B、C、D 可以简记作：(0, 1, 1, 3)。</p> <p>为了熟悉掌握优先级算法 ，我们再来做一些练习：</p> <div class="language-css extra-class"><pre class="language-css"><code>li                                  <span class="token comment">/* (0, 0, 0, 1) */</span>
+ul li                               <span class="token comment">/* (0, 0, 0, 2) */</span>
+ul ol+li                            <span class="token comment">/* (0, 0, 0, 3) */</span>
+ul ol li.red                        <span class="token comment">/* (0, 0, 1, 3) */</span>
+li.red.level                        <span class="token comment">/* (0, 0, 2, 1) */</span>
+.a1.a2.a3.a4.a5.a6.a7.a8.a9.a10.a11  <span class="token comment">/* (0, 0, 11,0) */</span>
+#x34y                               <span class="token comment">/* (0, 1, 0, 0) */</span>
+<span class="token property">li</span><span class="token punctuation">:</span>first-child h2 .title            <span class="token comment">/* (0, 0, 2, 2) */</span>
+#nav .selected &gt; <span class="token property">a</span><span class="token punctuation">:</span>hover            <span class="token comment">/* (0, 1, 2, 1) */</span>
+html body #nav .selected &gt; <span class="token property">a</span><span class="token punctuation">:</span>hover  <span class="token comment">/* (0, 1, 2, 3) */</span>
+
+</code></pre></div><p>OK， 现在已经弄清楚了优先级是怎么算的了。但是，还有一个问题，怎么比较两个优先级的高低呢？ 比较规则是: <strong>从左往右依次进行比较 ，较大者胜出，如果相等，则继续往右移动一位进行比较 。如果4位全部相等，则后面的会覆盖前面的</strong></p> <p>再来看一下例子：</p> <ul><li>html</li></ul> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>nav-list<span class="token punctuation">&quot;</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>nav-list<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>item<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>nav1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>item<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>nav2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+</code></pre></div><ul><li>css</li></ul> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">#nav-list .item</span> <span class="token punctuation">{</span>
+	<span class="token property">color</span><span class="token punctuation">:</span> #f00<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.nav-list .item</span> <span class="token punctuation">{</span>
+	<span class="token property">color</span><span class="token punctuation">:</span> #0f0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>算出 #nav-list .item 的优先级是 (0, 1, 1, 0),  .nav-list .item 的优先级是 (0, 0, 2, 0)。 左边第一位都是0， 再看看左边第二位，前者是1，后者是0， 所以（0, 1, 1, 0） 的大于 (0, 0, 2, 0) ，即 #nva-list .item 大于 .nav-list .item，所以字体会是红色。</p> <h2 id="优先级的特殊情况"><a href="#优先级的特殊情况" class="header-anchor">#</a> 优先级的特殊情况</h2> <p>经过上面的优先级计算规则，我们可以知道内联样式的优先级是最高的，但是外部样式有没有什么办法覆盖内联样式呢？有的，那就要 <code>!important</code> 出马了。因为一般情况下，很少会使用内联样式 ，所以 <code>!important</code> 也很少会用到！如果不是为了要覆盖内联样式，建议尽量不要使用 <code>!important</code> 。
+那可能有人会想，那如果我内联样式用了 <code>!important</code>，是不是外部样式就没有办法了呢？比如下面的代码：</p> <ul><li>html</li></ul> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>app<span class="token punctuation">&quot;</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">=&quot;</span><span class="token attr-value"><span class="token property">color</span><span class="token punctuation">:</span>#f00 <span class="token important">!important</span></span><span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>666<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+</code></pre></div><ul><li>css</li></ul> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.app</span> <span class="token punctuation">{</span>
+	<span class="token property">color</span><span class="token punctuation">:</span> #0f0 <span class="token important">!important</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>是的，你赢了，这时候内联样式已经强大到不管你外部样式怎么写都无法覆盖它了。这种情况在实际代码中是要杜绝的！记住，千万不要在内联样式中使用 <code>!important</code>
+最后 ， <code>!important</code> 真的是的无法超越的王者吗？其实不是的，一些情况，我们可以超越 <code>!important</code>, 请看下面的例子：</p> <ul><li>html</li></ul> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>box<span class="token punctuation">&quot;</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">=&quot;</span><span class="token attr-value"><span class="token property">background</span><span class="token punctuation">:</span> #f00<span class="token punctuation">;</span> <span class="token property">width</span><span class="token punctuation">:</span> 300px<span class="token important">!important</span><span class="token punctuation">;</span></span><span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>我的宽度是多少呢？？<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><ul><li>css</li></ul> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.box</span> <span class="token punctuation">{</span>
+	<span class="token property">max-width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>这时候 .box 的宽度只有 100px , 而不是 300px, 可见，max-width 可以超越 width!important!但是，这实际上不是优先级的问题，因为优先级是比较相同属性的，而 max-width 和 width 是两个不同的属性。之所以举这个例子，是要告诉大家，有时候不管怎么设置容器的 <code>width</code> 都不生效，检查一下是不是有人写了 <code>max-width</code> 坑了你哈。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/htmlcss/bootstrap.html">
+        Bootstrap框架
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.ab73207c.js" defer></script><script src="/assets/js/2.371eb53b.js" defer></script><script src="/assets/js/20.7e3db95c.js" defer></script>
+  </body>
+</html>

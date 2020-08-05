@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>NPM命令基本使用 | 小猪的全栈之路</title>
+    <meta name="description" content="小猪全栈，小猪的全栈之路，汪玮，前端教程，web开发，全栈开发，PHP教程， Javascript教程, node教程, 全栈教程，css教程，css教程">
+    <meta name="generator" content="VuePress 1.3.1">
+    <link rel="icon" href="/favicon.png">
+    
+    <link rel="preload" href="/assets/css/0.styles.26cb1efd.css" as="style"><link rel="preload" href="/assets/js/app.ab73207c.js" as="script"><link rel="preload" href="/assets/js/2.371eb53b.js" as="script"><link rel="preload" href="/assets/js/52.39ec43de.js" as="script"><link rel="prefetch" href="/assets/js/10.4d9f6525.js"><link rel="prefetch" href="/assets/js/11.5ebb20e8.js"><link rel="prefetch" href="/assets/js/12.2800d435.js"><link rel="prefetch" href="/assets/js/13.5ef11490.js"><link rel="prefetch" href="/assets/js/14.34f60f46.js"><link rel="prefetch" href="/assets/js/15.2a647f65.js"><link rel="prefetch" href="/assets/js/16.7983acbe.js"><link rel="prefetch" href="/assets/js/17.47089bf3.js"><link rel="prefetch" href="/assets/js/18.c6ebe5fc.js"><link rel="prefetch" href="/assets/js/19.29ae433b.js"><link rel="prefetch" href="/assets/js/20.7e3db95c.js"><link rel="prefetch" href="/assets/js/21.a1af9956.js"><link rel="prefetch" href="/assets/js/22.f9632885.js"><link rel="prefetch" href="/assets/js/23.c6343f0d.js"><link rel="prefetch" href="/assets/js/24.4212e3b9.js"><link rel="prefetch" href="/assets/js/25.3b47bc94.js"><link rel="prefetch" href="/assets/js/26.e7d175cd.js"><link rel="prefetch" href="/assets/js/27.3f9b3cb3.js"><link rel="prefetch" href="/assets/js/28.0ed8b082.js"><link rel="prefetch" href="/assets/js/29.45a4772e.js"><link rel="prefetch" href="/assets/js/3.0366a078.js"><link rel="prefetch" href="/assets/js/30.b5b485c3.js"><link rel="prefetch" href="/assets/js/31.32a35225.js"><link rel="prefetch" href="/assets/js/32.fbd42d55.js"><link rel="prefetch" href="/assets/js/33.52012796.js"><link rel="prefetch" href="/assets/js/34.a66a982d.js"><link rel="prefetch" href="/assets/js/35.b47ff83d.js"><link rel="prefetch" href="/assets/js/36.3e5cd53a.js"><link rel="prefetch" href="/assets/js/37.9dc5ca9b.js"><link rel="prefetch" href="/assets/js/38.670cda3d.js"><link rel="prefetch" href="/assets/js/39.058e9a4b.js"><link rel="prefetch" href="/assets/js/4.b2c0328d.js"><link rel="prefetch" href="/assets/js/40.386765ff.js"><link rel="prefetch" href="/assets/js/41.3259e3cc.js"><link rel="prefetch" href="/assets/js/42.3a0a348b.js"><link rel="prefetch" href="/assets/js/43.88e3d886.js"><link rel="prefetch" href="/assets/js/44.82c71439.js"><link rel="prefetch" href="/assets/js/45.068fd216.js"><link rel="prefetch" href="/assets/js/46.3320ec0c.js"><link rel="prefetch" href="/assets/js/47.cc2216be.js"><link rel="prefetch" href="/assets/js/48.1d8d8260.js"><link rel="prefetch" href="/assets/js/49.e6186920.js"><link rel="prefetch" href="/assets/js/5.01eecee7.js"><link rel="prefetch" href="/assets/js/50.4694c7a4.js"><link rel="prefetch" href="/assets/js/51.f9f283a0.js"><link rel="prefetch" href="/assets/js/53.0cd3b2d3.js"><link rel="prefetch" href="/assets/js/54.0fadd039.js"><link rel="prefetch" href="/assets/js/55.e9e01217.js"><link rel="prefetch" href="/assets/js/56.90661358.js"><link rel="prefetch" href="/assets/js/57.c4fe1c78.js"><link rel="prefetch" href="/assets/js/58.765b55b9.js"><link rel="prefetch" href="/assets/js/59.f80cec32.js"><link rel="prefetch" href="/assets/js/6.e0bb6ede.js"><link rel="prefetch" href="/assets/js/60.70d747a9.js"><link rel="prefetch" href="/assets/js/61.0fdeb455.js"><link rel="prefetch" href="/assets/js/62.280955c5.js"><link rel="prefetch" href="/assets/js/63.61f1a204.js"><link rel="prefetch" href="/assets/js/64.aa481b23.js"><link rel="prefetch" href="/assets/js/65.27717882.js"><link rel="prefetch" href="/assets/js/66.59a12e8b.js"><link rel="prefetch" href="/assets/js/67.9ce45748.js"><link rel="prefetch" href="/assets/js/68.4ff6dbd6.js"><link rel="prefetch" href="/assets/js/69.e2a04bad.js"><link rel="prefetch" href="/assets/js/7.5bea20b6.js"><link rel="prefetch" href="/assets/js/70.c72a1b77.js"><link rel="prefetch" href="/assets/js/8.c1335d0b.js"><link rel="prefetch" href="/assets/js/9.819e767c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.26cb1efd.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.jpg" alt="小猪的全栈之路" class="logo"> <span class="site-name can-hide">小猪的全栈之路</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Javascript" class="dropdown-title"><span class="title">Javascript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/htmlcss/" class="nav-link">
+  HTML&amp;CSS
+</a></li><li class="dropdown-item"><!----> <a href="/javascript/" class="nav-link">
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/javascript/es.html" class="nav-link">
+  ES6/ES7/ES8/ES9/ES10
+</a></li><li class="dropdown-item"><!----> <a href="/framework/jquery/" class="nav-link">
+  jQuery
+</a></li><li class="dropdown-item"><!----> <a href="/nodejs/" class="nav-link router-link-active">
+  NodeJs&amp;构建工具
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  React
+</a></li></ul></div></div><div class="nav-item"><a href="/php/" class="nav-link">
+  PHP
+</a></div><div class="nav-item"><a href="/linux/" class="nav-link">
+  Linux
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="天道酬勤" class="dropdown-title"><span class="title">天道酬勤</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/leetcode/" class="nav-link">
+  力扣
+</a></li><li class="dropdown-item"><!----> <a href="/codeblock/" class="nav-link">
+  代码块
+</a></li><li class="dropdown-item"><!----> <a href="/mianshi/" class="nav-link">
+  面试题收集
+</a></li><li class="dropdown-item"><!----> <a href="/designpattern/" class="nav-link">
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/datastruct/" class="nav-link">
+  数据结构&amp;算法
+</a></li><li class="dropdown-item"><!----> <a href="/networksafe/" class="nav-link">
+  网络&amp;安全
+</a></li><li class="dropdown-item"><!----> <a href="/tool/" class="nav-link">
+  工具
+</a></li><li class="dropdown-item"><!----> <a href="/ui/" class="nav-link">
+  设计
+</a></li><li class="dropdown-item"><!----> <a href="/abstract/" class="nav-link">
+  编程思维
+</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">
+  关于我
+</a></div><div class="nav-item"><a href="https://github.com/ww24kobe" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Javascript" class="dropdown-title"><span class="title">Javascript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/htmlcss/" class="nav-link">
+  HTML&amp;CSS
+</a></li><li class="dropdown-item"><!----> <a href="/javascript/" class="nav-link">
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/javascript/es.html" class="nav-link">
+  ES6/ES7/ES8/ES9/ES10
+</a></li><li class="dropdown-item"><!----> <a href="/framework/jquery/" class="nav-link">
+  jQuery
+</a></li><li class="dropdown-item"><!----> <a href="/nodejs/" class="nav-link router-link-active">
+  NodeJs&amp;构建工具
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  React
+</a></li></ul></div></div><div class="nav-item"><a href="/php/" class="nav-link">
+  PHP
+</a></div><div class="nav-item"><a href="/linux/" class="nav-link">
+  Linux
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="天道酬勤" class="dropdown-title"><span class="title">天道酬勤</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/leetcode/" class="nav-link">
+  力扣
+</a></li><li class="dropdown-item"><!----> <a href="/codeblock/" class="nav-link">
+  代码块
+</a></li><li class="dropdown-item"><!----> <a href="/mianshi/" class="nav-link">
+  面试题收集
+</a></li><li class="dropdown-item"><!----> <a href="/designpattern/" class="nav-link">
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/datastruct/" class="nav-link">
+  数据结构&amp;算法
+</a></li><li class="dropdown-item"><!----> <a href="/networksafe/" class="nav-link">
+  网络&amp;安全
+</a></li><li class="dropdown-item"><!----> <a href="/tool/" class="nav-link">
+  工具
+</a></li><li class="dropdown-item"><!----> <a href="/ui/" class="nav-link">
+  设计
+</a></li><li class="dropdown-item"><!----> <a href="/abstract/" class="nav-link">
+  编程思维
+</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">
+  关于我
+</a></div><div class="nav-item"><a href="https://github.com/ww24kobe" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/nodejs/module.html" class="sidebar-link">模块化CommonJS，AMD，CMD规范</a></li><li><a href="/nodejs/webpackloader.html" class="sidebar-link">webpack常用Loader配置</a></li><li><a href="/nodejs/npmcommond.html" class="active sidebar-link">NPM命令基本使用</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/nodejs/npmcommond.html#npm介绍" class="sidebar-link">NPM介绍</a></li><li class="sidebar-sub-header"><a href="/nodejs/npmcommond.html#npm常用命令介绍" class="sidebar-link">NPM常用命令介绍</a></li><li class="sidebar-sub-header"><a href="/nodejs/npmcommond.html#package-json-文件中常见的选项" class="sidebar-link">package.json 文件中常见的选项</a></li><li class="sidebar-sub-header"><a href="/nodejs/npmcommond.html#npm-全局安装包" class="sidebar-link">NPM 全局安装包</a></li><li class="sidebar-sub-header"><a href="/nodejs/npmcommond.html#package-lock文件作用" class="sidebar-link">package.lock文件作用</a></li><li class="sidebar-sub-header"><a href="/nodejs/npmcommond.html#nrm（npm下载源管理器）" class="sidebar-link">nrm（npm下载源管理器）</a></li><li class="sidebar-sub-header"><a href="/nodejs/npmcommond.html#安装nodemon工具" class="sidebar-link">安装nodemon工具</a></li></ul></li><li><a href="/nodejs/gulp.html" class="sidebar-link">Gulp前端构建工具</a></li><li><a href="/nodejs/requirejs.html" class="sidebar-link">requireJs模块化开发</a></li><li><a href="/nodejs/sass.html" class="sidebar-link">sass</a></li><li><a href="/nodejs/nodebasic.html" class="sidebar-link">nodejs入门</a></li><li><a href="/nodejs/hexo.html" class="sidebar-link">hexo+github pages搭建博客</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="npm命令基本使用"><a href="#npm命令基本使用" class="header-anchor">#</a> NPM命令基本使用</h1> <h2 id="npm介绍"><a href="#npm介绍" class="header-anchor">#</a> NPM介绍</h2> <p><strong>1. NPM 是什么</strong>？</p> <ul><li><p>npm（全称Node Package Manager，即node包管理器）。</p></li> <li><p>npm是Node.js默认的软件包管理器件。安装完毕node后，会默认安装npm</p></li> <li><p>npm本身也是基于Node.js开发的包</p></li> <li><p>查看当前npm版本：<code>npm -v</code></p></li> <li><p><a href="https://www.npmjs.com/" target="_blank" rel="noopener noreferrer">npm 官方网站<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>，这是NPM 包管理库，存储了大量的JavaScript代码库</p></li> <li><p><a href="https://docs.npmjs.com/" target="_blank" rel="noopener noreferrer">npm 官方文档<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>，可以查看npm命令的具体使用</p></li></ul> <h2 id="npm常用命令介绍"><a href="#npm常用命令介绍" class="header-anchor">#</a> NPM常用命令介绍</h2> <p>1、首先在项目根目录中先初始化项目描述文件<code>package.json</code> ，记录项目所依赖的包。</p> <ul><li>可通过 <code>npm init</code> 命令根据引导创建 package.json 文件。</li> <li>或直接通过 <code>npm init -y</code> 或 <code>npm init -yes</code>  命令直接创建一个包含默认信息的package.json文件</li></ul> <p>2、npm下载模块</p> <ul><li><p>在 <a href="https://www.npmjs.com/" target="_blank" rel="noopener noreferrer">https://www.npmjs.com/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 网站找到需要的包，进行下载</p></li> <li><p>npm install xxx ：下载xxx模块到当前命令行所在的node_modules目录中，此目录若不存在则会自动创建。且安装的模块会写入package.json中的dependencies生成环境（线上环境）依赖中。</p></li> <li><p>npm install xxx –-save ：下载并写入package.json中的dependencies生产环境依赖中，其中<code>--save</code>可简写<code>-S</code></p></li> <li><p>npm install xxx –-save-dev：下载并写入package.json中的devDependencies开发环境依赖中，其中<code>--save-dev</code>可简写为<code>-D</code></p></li> <li><p>npm install --production : 仅安装dependencies生产环境指定的依赖，</p></li> <li><p>npm install 安装package.json文件中dependencies和devDependencies指定的所有模块</p></li> <li><p>在代码中通过 <code>require('包名'</code>)加载对应的包会自动从node_modules中加载该模块</p></li></ul> <p>3、 npm 删除模块</p> <p>npm uninstall xxx：删除本地xxx模块；</p> <blockquote><p>可以输入npm install --help查看详细用法</p></blockquote> <h2 id="package-json-文件中常见的选项"><a href="#package-json-文件中常见的选项" class="header-anchor">#</a> package.json 文件中常见的选项</h2> <p>1、常见项目</p> <ul><li><p>name: 包的名称，由小写英文字母、数字和下划线组成，不能包含空格。</p></li> <li><p>description：包的简要说明。</p></li> <li><p>author：包的作者</p></li> <li><p>version：符合语义化版本识别规范的版本</p></li> <li><p>keywords：关键字数组，通常用于搜索。</p></li> <li><p>repositories：仓库托管地址数组，每个元素要包含type（仓库的类型，如git）、url（仓库的地址）和path（相对于仓库的路径，可选）字段。</p></li> <li><p><code>dependencies</code>：记录项目在<code>生产环境所依赖的包</code>，一个关联数组，由包名称和版本号组成</p></li> <li><p><code>devDependencies</code>：记录项目在<code>开发环境所依赖的包</code>，一个关联数组，由包名称和版本号组成，一般记录第三方插件或工具包。</p></li> <li><p>main： 当包被require时，指定包的入口js文件，即从这个js文件开始执行。</p></li> <li><p>package.json文件说明：</p></li> <li><p><a href="https://docs.npmjs.com/files/package.json" target="_blank" rel="noopener noreferrer">package.json<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></li> <li><p><a href="https://docs.npmjs.com/getting-started/using-a-package.json" target="_blank" rel="noopener noreferrer">Using a package.json<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></li></ul> <p>2、包版本号说明
+在npm中安装固定的版本号package，只需要在其后加 <code>@版本号</code></p> <p>如：npm install xxx@1.2.2</p> <ul><li><code>指定版本</code>：比如1.2.2，遵循“大版本.次要版本.小版本”的格式规定，安装时只安装指定版本。</li> <li><code>波浪号+指定版本</code>：比如~1.2.2，表示安装1.2.2以上的最新版本，但是不安装1.3.x的版本，也就是说安装时不改变大版本号和次要版本号。</li> <li><code>符号^+指定版本</code>：比如ˆ1.2.2，表示安装1.2.2以上的最新版本，但是不安装2.x.x的版本，也就是说安装时不改变大版本号。</li> <li><code>latest</code>：安装最新版本。</li></ul> <h2 id="npm-全局安装包"><a href="#npm-全局安装包" class="header-anchor">#</a> NPM 全局安装包</h2> <ul><li><code>npm install 模块 -g</code> :全局安装指的是把模块安装成了一个全局命令行工具。</li> <li>且全局安装的包不可以在代码中通过require() 的方式来加载。<code>仅能当作一个全局的命令来使用</code></li></ul> <blockquote><p>注意：全局安装仅能当全局命令去使用。</p></blockquote> <ul><li>npm uninstall  xxx -g：删除全局模块xxx；</li></ul> <h2 id="package-lock文件作用"><a href="#package-lock文件作用" class="header-anchor">#</a> package.lock文件作用</h2> <p>锁定npm install所安装时的包的版本号，以保证其他人在npm install时,就能确保所有包与你上次安装的完全一样。</p> <h2 id="nrm（npm下载源管理器）"><a href="#nrm（npm下载源管理器）" class="header-anchor">#</a> nrm（npm下载源管理器）</h2> <p>nrm 是一个 NPM 源管理器，允许你快速地在如下 NPM 源间切换：</p> <p>1、安装</p> <div class="language- extra-class"><pre class="language-text"><code>npm install nrm -g
+</code></pre></div><blockquote><p>全局安装仅仅是当做一个全局的命令去使用。
+2、使用列出可选的源 <code>nrm ls</code></p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>    nrm ls
+  * npm ---- https://registry.npmjs.org/
+  cnpm --- http://r.cnpmjs.org/
+  taobao - https://registry.npm.taobao.org/
+  nj ----- https://registry.nodejitsu.com/
+  npmMirror  https://skimdb.npmjs.com/registry/
+  edunpm - http://registry.enpmjs.org/
+  带 * 的是当前使用的源，上面的输出表明当前源是官方源
+</code></pre></div><p>3、切换到taobao源</p> <div class="language- extra-class"><pre class="language-text"><code>nrm use taobao 
+</code></pre></div><p>4、测试
+还可以通过 nrm test 测试相应源的响应时间</p> <p>测试官方源的响应时间：nrm test npm</p> <p>测试所有源的响应时间：nrm test</p> <h2 id="安装nodemon工具"><a href="#安装nodemon工具" class="header-anchor">#</a> 安装nodemon工具</h2> <p>每次修改完js文件之后，都要重新启动node服务，这样非常影响开发效率,使用nodemon工具会自动监测项目中的文件变化,一旦发现文件有改动,nodemon 会自动重启node服务</p> <div class="language- extra-class"><pre class="language-text"><code>npm install nodemon -g
+</code></pre></div><p>使用的时候，把node改为nodemon即可,如下</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>\Desktop\nodejs_ study<span class="token operator">&gt;</span>nodemon server3<span class="token punctuation">.</span>js
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/nodejs/webpackloader.html" class="prev">
+        webpack常用Loader配置
+      </a></span> <span class="next"><a href="/nodejs/gulp.html">
+        Gulp前端构建工具
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.ab73207c.js" defer></script><script src="/assets/js/2.371eb53b.js" defer></script><script src="/assets/js/52.39ec43de.js" defer></script>
+  </body>
+</html>

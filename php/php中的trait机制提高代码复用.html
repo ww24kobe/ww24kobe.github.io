@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>php中的trait机制提高代码复用 | 小猪的全栈之路</title>
+    <meta name="description" content="小猪全栈，小猪的全栈之路，汪玮，前端教程，web开发，全栈开发，PHP教程， Javascript教程, node教程, 全栈教程，css教程，css教程">
+    <meta name="generator" content="VuePress 1.3.1">
+    <link rel="icon" href="/favicon.png">
+    
+    <link rel="preload" href="/assets/css/0.styles.26cb1efd.css" as="style"><link rel="preload" href="/assets/js/app.ab73207c.js" as="script"><link rel="preload" href="/assets/js/2.371eb53b.js" as="script"><link rel="preload" href="/assets/js/62.280955c5.js" as="script"><link rel="prefetch" href="/assets/js/10.4d9f6525.js"><link rel="prefetch" href="/assets/js/11.5ebb20e8.js"><link rel="prefetch" href="/assets/js/12.2800d435.js"><link rel="prefetch" href="/assets/js/13.5ef11490.js"><link rel="prefetch" href="/assets/js/14.34f60f46.js"><link rel="prefetch" href="/assets/js/15.2a647f65.js"><link rel="prefetch" href="/assets/js/16.7983acbe.js"><link rel="prefetch" href="/assets/js/17.47089bf3.js"><link rel="prefetch" href="/assets/js/18.c6ebe5fc.js"><link rel="prefetch" href="/assets/js/19.29ae433b.js"><link rel="prefetch" href="/assets/js/20.7e3db95c.js"><link rel="prefetch" href="/assets/js/21.a1af9956.js"><link rel="prefetch" href="/assets/js/22.f9632885.js"><link rel="prefetch" href="/assets/js/23.c6343f0d.js"><link rel="prefetch" href="/assets/js/24.4212e3b9.js"><link rel="prefetch" href="/assets/js/25.3b47bc94.js"><link rel="prefetch" href="/assets/js/26.e7d175cd.js"><link rel="prefetch" href="/assets/js/27.3f9b3cb3.js"><link rel="prefetch" href="/assets/js/28.0ed8b082.js"><link rel="prefetch" href="/assets/js/29.45a4772e.js"><link rel="prefetch" href="/assets/js/3.0366a078.js"><link rel="prefetch" href="/assets/js/30.b5b485c3.js"><link rel="prefetch" href="/assets/js/31.32a35225.js"><link rel="prefetch" href="/assets/js/32.fbd42d55.js"><link rel="prefetch" href="/assets/js/33.52012796.js"><link rel="prefetch" href="/assets/js/34.a66a982d.js"><link rel="prefetch" href="/assets/js/35.b47ff83d.js"><link rel="prefetch" href="/assets/js/36.3e5cd53a.js"><link rel="prefetch" href="/assets/js/37.9dc5ca9b.js"><link rel="prefetch" href="/assets/js/38.670cda3d.js"><link rel="prefetch" href="/assets/js/39.058e9a4b.js"><link rel="prefetch" href="/assets/js/4.b2c0328d.js"><link rel="prefetch" href="/assets/js/40.386765ff.js"><link rel="prefetch" href="/assets/js/41.3259e3cc.js"><link rel="prefetch" href="/assets/js/42.3a0a348b.js"><link rel="prefetch" href="/assets/js/43.88e3d886.js"><link rel="prefetch" href="/assets/js/44.82c71439.js"><link rel="prefetch" href="/assets/js/45.068fd216.js"><link rel="prefetch" href="/assets/js/46.3320ec0c.js"><link rel="prefetch" href="/assets/js/47.cc2216be.js"><link rel="prefetch" href="/assets/js/48.1d8d8260.js"><link rel="prefetch" href="/assets/js/49.e6186920.js"><link rel="prefetch" href="/assets/js/5.01eecee7.js"><link rel="prefetch" href="/assets/js/50.4694c7a4.js"><link rel="prefetch" href="/assets/js/51.f9f283a0.js"><link rel="prefetch" href="/assets/js/52.39ec43de.js"><link rel="prefetch" href="/assets/js/53.0cd3b2d3.js"><link rel="prefetch" href="/assets/js/54.0fadd039.js"><link rel="prefetch" href="/assets/js/55.e9e01217.js"><link rel="prefetch" href="/assets/js/56.90661358.js"><link rel="prefetch" href="/assets/js/57.c4fe1c78.js"><link rel="prefetch" href="/assets/js/58.765b55b9.js"><link rel="prefetch" href="/assets/js/59.f80cec32.js"><link rel="prefetch" href="/assets/js/6.e0bb6ede.js"><link rel="prefetch" href="/assets/js/60.70d747a9.js"><link rel="prefetch" href="/assets/js/61.0fdeb455.js"><link rel="prefetch" href="/assets/js/63.61f1a204.js"><link rel="prefetch" href="/assets/js/64.aa481b23.js"><link rel="prefetch" href="/assets/js/65.27717882.js"><link rel="prefetch" href="/assets/js/66.59a12e8b.js"><link rel="prefetch" href="/assets/js/67.9ce45748.js"><link rel="prefetch" href="/assets/js/68.4ff6dbd6.js"><link rel="prefetch" href="/assets/js/69.e2a04bad.js"><link rel="prefetch" href="/assets/js/7.5bea20b6.js"><link rel="prefetch" href="/assets/js/70.c72a1b77.js"><link rel="prefetch" href="/assets/js/8.c1335d0b.js"><link rel="prefetch" href="/assets/js/9.819e767c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.26cb1efd.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.jpg" alt="小猪的全栈之路" class="logo"> <span class="site-name can-hide">小猪的全栈之路</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Javascript" class="dropdown-title"><span class="title">Javascript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/htmlcss/" class="nav-link">
+  HTML&amp;CSS
+</a></li><li class="dropdown-item"><!----> <a href="/javascript/" class="nav-link">
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/javascript/es.html" class="nav-link">
+  ES6/ES7/ES8/ES9/ES10
+</a></li><li class="dropdown-item"><!----> <a href="/framework/jquery/" class="nav-link">
+  jQuery
+</a></li><li class="dropdown-item"><!----> <a href="/nodejs/" class="nav-link">
+  NodeJs&amp;构建工具
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  React
+</a></li></ul></div></div><div class="nav-item"><a href="/php/" class="nav-link router-link-active">
+  PHP
+</a></div><div class="nav-item"><a href="/linux/" class="nav-link">
+  Linux
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="天道酬勤" class="dropdown-title"><span class="title">天道酬勤</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/leetcode/" class="nav-link">
+  力扣
+</a></li><li class="dropdown-item"><!----> <a href="/codeblock/" class="nav-link">
+  代码块
+</a></li><li class="dropdown-item"><!----> <a href="/mianshi/" class="nav-link">
+  面试题收集
+</a></li><li class="dropdown-item"><!----> <a href="/designpattern/" class="nav-link">
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/datastruct/" class="nav-link">
+  数据结构&amp;算法
+</a></li><li class="dropdown-item"><!----> <a href="/networksafe/" class="nav-link">
+  网络&amp;安全
+</a></li><li class="dropdown-item"><!----> <a href="/tool/" class="nav-link">
+  工具
+</a></li><li class="dropdown-item"><!----> <a href="/ui/" class="nav-link">
+  设计
+</a></li><li class="dropdown-item"><!----> <a href="/abstract/" class="nav-link">
+  编程思维
+</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">
+  关于我
+</a></div><div class="nav-item"><a href="https://github.com/ww24kobe" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Javascript" class="dropdown-title"><span class="title">Javascript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/htmlcss/" class="nav-link">
+  HTML&amp;CSS
+</a></li><li class="dropdown-item"><!----> <a href="/javascript/" class="nav-link">
+  Javascript
+</a></li><li class="dropdown-item"><!----> <a href="/javascript/es.html" class="nav-link">
+  ES6/ES7/ES8/ES9/ES10
+</a></li><li class="dropdown-item"><!----> <a href="/framework/jquery/" class="nav-link">
+  jQuery
+</a></li><li class="dropdown-item"><!----> <a href="/nodejs/" class="nav-link">
+  NodeJs&amp;构建工具
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  React
+</a></li></ul></div></div><div class="nav-item"><a href="/php/" class="nav-link router-link-active">
+  PHP
+</a></div><div class="nav-item"><a href="/linux/" class="nav-link">
+  Linux
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="天道酬勤" class="dropdown-title"><span class="title">天道酬勤</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/leetcode/" class="nav-link">
+  力扣
+</a></li><li class="dropdown-item"><!----> <a href="/codeblock/" class="nav-link">
+  代码块
+</a></li><li class="dropdown-item"><!----> <a href="/mianshi/" class="nav-link">
+  面试题收集
+</a></li><li class="dropdown-item"><!----> <a href="/designpattern/" class="nav-link">
+  设计模式
+</a></li><li class="dropdown-item"><!----> <a href="/datastruct/" class="nav-link">
+  数据结构&amp;算法
+</a></li><li class="dropdown-item"><!----> <a href="/networksafe/" class="nav-link">
+  网络&amp;安全
+</a></li><li class="dropdown-item"><!----> <a href="/tool/" class="nav-link">
+  工具
+</a></li><li class="dropdown-item"><!----> <a href="/ui/" class="nav-link">
+  设计
+</a></li><li class="dropdown-item"><!----> <a href="/abstract/" class="nav-link">
+  编程思维
+</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">
+  关于我
+</a></div><div class="nav-item"><a href="https://github.com/ww24kobe" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="php中的trait机制提高代码复用"><a href="#php中的trait机制提高代码复用" class="header-anchor">#</a> php中的trait机制提高代码复用</h1> <h2 id="什么是trait"><a href="#什么是trait" class="header-anchor">#</a> 什么是trait</h2> <p>自 PHP 5.4.0 起，PHP 实现了一种代码复用的方法，称为 trait。</p> <p>Trait 是为类似 PHP 的单继承语言而准备的一种代码复用机制。Trait 为了减少单继承语言的限制，使开发人员能够自由地在不同层次结构内独立的类中复用 method。Trait 和 Class 组合的语义定义了一种减少复杂性的方式，避免传统多继承和 Mixin 类相关典型问题。</p> <p>Trait 和 Class 相似，但仅仅旨在用细粒度和一致的方式来组合功能。 无法通过 trait 自身来实例化。它为传统继承增加了水平特性的组合；也就是说，应用的几个 Class 之间不需要继承。</p> <p>其实就是一句话，弥补了php不能多继承的问题</p> <h2 id="trait和当前类"><a href="#trait和当前类" class="header-anchor">#</a> trait和当前类</h2> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">trait</span> Goods <span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">goodsInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">echo</span> <span class="token single-quoted-string string">'trait-goodsInfo'</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">c</span> <span class="token punctuation">{</span>
+	<span class="token keyword">use</span> <span class="token package">Goods</span><span class="token punctuation">;</span>  <span class="token comment">// 相当与trait Goods给引入当前类，就可以使用其中的goodsInfo方法</span>
+	<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">goodsAttr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">echo</span>  <span class="token single-quoted-string string">'goodsAttr'</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$c</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$c</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">goodsInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 'trait-goodsInfo'   </span>
+<span class="token keyword">echo</span> <span class="token variable">$c</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">goodsAttr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 'goodsAttr'</span>
+</code></pre></div><p>可见，对象调用一个方法若找不到，就会去当前类引入的trait中去找.</p> <p>当类c中如果和引入的trait中有同名的方法，则优先会读取当前c中的方法，如下所示：</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">trait</span> Goods <span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">goodsInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">echo</span> <span class="token single-quoted-string string">'trait-goodsInfo'</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">c</span> <span class="token punctuation">{</span>
+
+	<span class="token keyword">use</span> <span class="token package">Goods</span><span class="token punctuation">;</span> <span class="token comment">//  相当与trait Goods给引入当前类，就可以使用其中的goodsInfo方法</span>
+	<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">goodsAttr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">echo</span>  <span class="token single-quoted-string string">'goodsAttr'</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">goodsInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">echo</span>  <span class="token single-quoted-string string">'c-goodsInfo'</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$c</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$c</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">goodsInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 'c-goodsInfo'</span>
+<span class="token keyword">echo</span> <span class="token variable">$c</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">goodsAttr</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 'goodsAttr'</span>
+</code></pre></div><p>结果是'c-goodsInfo'.可见，当前类的优先级高于trait.</p> <h2 id="trait和继承"><a href="#trait和继承" class="header-anchor">#</a> trait和继承</h2> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">trait</span> Goods <span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">goodsInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">echo</span> <span class="token single-quoted-string string">'trait-goodsInfo'</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">p</span><span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">goodsInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">echo</span> <span class="token single-quoted-string string">'p-goodsInfo'</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">c</span> <span class="token keyword">extends</span> <span class="token class-name">p</span><span class="token punctuation">{</span>
+
+	<span class="token keyword">use</span> <span class="token package">Goods</span><span class="token punctuation">;</span> <span class="token comment">//  相当与trait Goods给引入当前类，就可以使用其中的goodsInfo方法</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token variable">$c</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">c</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$c</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">goodsInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 'trait-goodsInfo'</span>
+</code></pre></div><p>结果是'trait-goodsInfo' ,可见trait的优先级高于继承。</p> <h2 id="trait中的this"><a href="#trait中的this" class="header-anchor">#</a> trait中的this</h2> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">trait</span> Good<span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">echo</span>  <span class="token double-quoted-string string">&quot;My name is &quot;</span> <span class="token punctuation">.</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">name</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span> 
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token variable">$name</span> <span class="token operator">=</span> <span class="token single-quoted-string string">'王大锤'</span><span class="token punctuation">;</span>
+	<span class="token keyword">use</span> <span class="token package">Good</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token variable">$p</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$p</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// My name is 王大锤</span>
+</code></pre></div><p>可见，trait中的this依然是当前调用的对象p。</p> <h2 id="trait中使用trait"><a href="#trait中使用trait" class="header-anchor">#</a> trait中使用trait</h2> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">trait</span> Hello <span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">echo</span> <span class="token single-quoted-string string">'Hello'</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">trait</span> World <span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">sayWorld</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">echo</span> <span class="token single-quoted-string string">'World'</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">trait</span> HelloWorld <span class="token punctuation">{</span>
+	<span class="token comment">//使用多个trait</span>
+	<span class="token keyword">use</span> <span class="token package">Hello</span><span class="token punctuation">,</span>World<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyHelloWorld</span><span class="token punctuation">{</span>
+	<span class="token keyword">use</span> <span class="token package">HelloWorld</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token variable">$obj</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyHelloWorld</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$obj</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Hello </span>
+<span class="token variable">$obj</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">sayWorld</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// World</span>
+</code></pre></div><p>关于trait的用法先介绍这么多吧！ 更多细节请看官网<a href="https://www.php.net/manual/zh/language.oop5.traits.php" target="_blank" rel="noopener noreferrer">trait<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>的解释</p> <h2 id="小结"><a href="#小结" class="header-anchor">#</a> 小结</h2> <ul><li>Trait 无法像 Class 一样使用 new 实例化</li> <li>在单个 Class 中，可以使用多个 Trait</li> <li>当前类的优先级高于trait，trait的优先级高于继承。 当前类&gt;trait&gt;继承类</li> <li>使用trait时候应该坚决避免命名冲突，尤其是同时使用多个trait时。</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.ab73207c.js" defer></script><script src="/assets/js/2.371eb53b.js" defer></script><script src="/assets/js/62.280955c5.js" defer></script>
+  </body>
+</html>
